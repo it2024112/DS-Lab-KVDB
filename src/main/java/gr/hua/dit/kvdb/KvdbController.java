@@ -33,7 +33,7 @@ public class KvdbController {
     /**
      * Creates a new key with the given value; fails if the key already exists.
      */
-    @PostMapping(value = "/kv/{key}", consumes = MediaType.TEXT_PLAIN_VALUE)
+    @PostMapping(value = "/kv/{key}", consumes = MediaType.TEXT_PLAIN)
     public String insert(@PathVariable String key, @RequestBody String value) {
         if (this.db.containsKey(key)) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "key already exists");
